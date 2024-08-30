@@ -1,0 +1,66 @@
+#include <stdio.h>
+void odd(int n){
+    if(n<1) return;
+    odd(n);             //direct recursion        
+    
+} 
+
+
+void odd(int n){
+    if(n<1) return;
+    printf("%d",n+1);
+    even(n);               
+    
+}                       //indirect recursion
+void even(int n){
+    if(n<1) return;
+    printf("%d",n-1);
+    odd(n);                     
+    
+} 
+
+
+int odd(int n){
+    if(n==0)
+    return 1;
+    else{                     
+        printf("%d",n);       //tail recursion
+        return odd(n-1);
+    }
+}
+
+
+int odd(int n){
+    if(n==0)
+    return 1;
+    else{
+       printf("%d",n); 
+       return 1 + odd(n-1);         //non tail recursion
+         
+    }
+}
+
+
+void odd(int n){
+    int i=0;
+    if(n>1)
+    odd(n-1);
+    for(i=0;i<n;i++)        // non tail recursion
+    printf("%d",n);
+    printf("\t");
+}
+
+
+void odd(int n){
+    if(n<1) return;
+    odd(n-1);                   //non tail recursion
+    odd(n-3);                                
+    printf("%d",n);
+}
+
+int main()
+{
+   odd(6);
+return 0;
+
+}
